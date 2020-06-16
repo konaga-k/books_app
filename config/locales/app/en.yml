@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    attributes:
+      book:
+        title: title
+        memo: memo
+        author: author
+        picture: picture
+  view:
+    book:
+      link:
+        new: new book
+        back: back
+        show: show
+        edit: edit
+        destroy: destroy
+      confirm:
+        destroy: Are you sure?
+      title:
+        index: Books
+        new: New Book
+        edit: Editing Book
+      notice:
+        create: Book was successfully created.
+        update: Book was successfully updated.
+        destroy: Book was successfully destroyed.
