@@ -1,4 +1,4 @@
-ja:
+en:
   activerecord:
     attributes:
       book:
@@ -9,11 +9,11 @@ ja:
   view:
     book:
       link:
-        new: new book
-        back: back
-        show: show
-        edit: edit
-        destroy: destroy
+        new: New Book
+        back: Back
+        show: Show
+        edit: Edit
+        destroy: Destroy
       confirm:
         destroy: Are you sure?
       title:
