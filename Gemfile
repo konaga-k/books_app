@@ -56,3 +56,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'awesome_print'
 
 gem 'carrierwave'
+
+# code formatter
+gem 'rubocop', '~> 0.85.0'
+gem 'rubocop-performance', '~>1.6.0'
+gem 'rubocop-rails', '~>2.6.0'
