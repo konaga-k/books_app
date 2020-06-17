@@ -28,28 +28,20 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
 
-    respond_to do |format|
-      if @book.save
-        format.html { redirect_to @book, notice: t('view.book.notice.create') }
-        format.json { render :show, status: :created, location: @book }
-      else
-        format.html { render :new }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+    if @book.save
+      redirect_to @book, notice: t('view.book.notice.create')
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
-    respond_to do |format|
-      if @book.update(book_params)
-        format.html { redirect_to @book, notice: t('view.book.notice.update') }
-        format.json { render :show, status: :ok, location: @book }
-      else
-        format.html { render :edit }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+    if @book.update(book_params)
+      redirect_to @book, notice: t('view.book.notice.update')
+    else
+      render :edit
     end
   end
 
@@ -57,10 +49,7 @@ class BooksController < ApplicationController
   # DELETE /books/1.json
   def destroy
     @book.destroy
-    respond_to do |format|
-      format.html { redirect_to books_url, notice: t('view.book.notice.destroy') }
-      format.json { head :no_content }
-    end
+    redirect_to books_url, notice: t('view.book.notice.destroy')
   end
 
   private
