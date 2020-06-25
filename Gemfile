@@ -54,3 +54,6 @@ gem "carrierwave"
 gem "rubocop", "~> 0.85.0"
 gem "rubocop-performance", "~>1.6.0"
 gem "rubocop-rails", "~>2.6.0"
+
+# pagination
+gem "kaminari", "~> 1.2.0"
