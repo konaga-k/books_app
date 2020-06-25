@@ -4,13 +4,11 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
-  # GET /books.json
   def index
     @books = Book.all
   end
 
   # GET /books/1
-  # GET /books/1.json
   def show
   end
 
@@ -24,7 +22,6 @@ class BooksController < ApplicationController
   end
 
   # POST /books
-  # POST /books.json
   def create
     @book = Book.new(book_params)
 
@@ -36,7 +33,6 @@ class BooksController < ApplicationController
   end
 
   # PATCH/PUT /books/1
-  # PATCH/PUT /books/1.json
   def update
     if @book.update(book_params)
       redirect_to @book, notice: t('view.book.notice.update')
@@ -46,19 +42,16 @@ class BooksController < ApplicationController
   end
 
   # DELETE /books/1
-  # DELETE /books/1.json
   def destroy
     @book.destroy
     redirect_to books_url, notice: t('view.book.notice.destroy')
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_book
       @book = Book.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def book_params
       params.require(:book).permit(:title, :memo, :author, :picture)
     end
