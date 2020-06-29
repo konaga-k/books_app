@@ -21,9 +21,19 @@ gem "turbolinks", "~> 5"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false
 
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "carrierwave"
+
+# pagination
+gem "kaminari", "~> 1.2.0"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+
+  gem "awesome_print"
 end
 
 group :development do
@@ -33,6 +43,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
+
+  # code formatter
+  gem "rubocop", "~> 0.85.0"
+  gem "rubocop-performance", "~>1.6.0"
+  gem "rubocop-rails", "~>2.6.0"
 end
 
 group :test do
@@ -42,15 +57,3 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem "webdrivers"
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem "awesome_print"
-
-gem "carrierwave"
-
-# code formatter
-gem "rubocop", "~> 0.85.0"
-gem "rubocop-performance", "~>1.6.0"
-gem "rubocop-rails", "~>2.6.0"
