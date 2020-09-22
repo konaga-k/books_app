@@ -26,6 +26,10 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "carrierwave"
 
+# authentication
+gem "devise", "~> 4.7.3"
+gem "devise-i18n", "~> 1.9.2"
+
 # pagination
 gem "kaminari", "~> 1.2.0"
 

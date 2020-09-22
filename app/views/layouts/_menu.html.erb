@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+  <ul>
+    <li><%= link_to t('view.book.title.index'), books_path %></li>
+    <li><%= link_to t('view.user.title.index'), users_path %></li>
+  </ul>
+<% end %>
