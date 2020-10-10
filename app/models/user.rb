@@ -5,6 +5,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :validatable
 
+  has_one_attached :avatar
+
+  attribute :purge_avatar, :boolean, default: false
+
+  def save
+    ActiveRecord::Base.transaction do
+      avatar.purge if purge_avatar
+      super
+    end
+  end
+
   # 余裕があればdecoratorにしたいが、速さ優先でmodelに実装
   def full_name
     "#{last_name} #{first_name}"
