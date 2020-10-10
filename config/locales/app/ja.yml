@@ -6,6 +6,17 @@ ja:
         memo: メモ
         author: 著者
         picture: 画像
+      user:
+        email: メールアドレス
+        last_name: 姓
+        first_name: 名
+        full_name: 氏名
+        zipcode: 郵便番号
+        address: 住所
+        introduction: 自己紹介
+        password: パスワード
+        password_confirmation: パスワード(確認)
+        current_password: 現在のパスワード
   view:
     book:
       link:
@@ -24,3 +35,15 @@ ja:
         create: 書籍が作成されました。
         update: 書籍が更新されました。
         destroy: 書籍が削除されました。
+    user:
+      link:
+        back: 戻る
+        edit: 編集
+      title:
+        index: ユーザー 一覧
+        show: ユーザー 詳細
+    registration:
+      link:
+        edit: プロフィール 編集
+      title:
+        edit: プロフィール 編集
