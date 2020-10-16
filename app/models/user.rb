@@ -6,6 +6,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :validatable
   devise :omniauthable, omniauth_providers: %i[github]
 
+  has_one_attached :avatar
+
+  attribute :purge_avatar, :boolean, default: false
+
   class << self
     def from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -14,6 +18,13 @@ class User < ApplicationRecord
         user.last_name = auth.info.last_name
         user.first_name = auth.info.first_name
       end
+    end
+  end
+
+  def save
+    ActiveRecord::Base.transaction do
+      super
+      avatar.purge if purge_avatar
     end
   end
 
