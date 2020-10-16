@@ -17,6 +17,9 @@ en:
         password: password
         password_confirmation: password_confirmation
         current_password: current_password
+    errors:
+      user_follow:
+        follower_is_equal_to_following: You can't follow yourself.
   view:
     book:
       link:
@@ -47,3 +50,15 @@ en:
         edit: Editing Profile
       title:
         edit: Editing Profile
+    user/follow:
+      button:
+        create: Follow
+        destroy: Remove
+      notice:
+        create: Following the user was successfully completed.
+        destroy: Removing the user was successfully completed.
+    user/following:
+      title:
+        index: Followings
+      message:
+        none: This user is not following anyone.

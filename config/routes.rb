@@ -17,7 +17,10 @@ Rails.application.routes.draw do
     put "users" => "users/registrations#update", as: :user_registration
   end
 
-  resources :users, only: %i[index show]
+  resources :users, only: %i[index show] do
+    resources :follows, only: %i[create destroy], controller: 'users/follows'
+    resources :followings, only: %i[index], controller: 'users/followings'
+  end
   resources :books
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,5 +1,16 @@
 <h1><%= t('view.user.title.show') %></h1>
 
+<div style='display: flex; flex-flow: row nowrap'>
+  <%= link_to 'フォローユーザー一覧', user_followings_path(@user) %>
+  <% unless @user == current_user %>
+    <% if @follow.new_record? %>
+      <%= render 'users/follow', follow: @follow %>
+    <% else %>
+      <%= render 'users/remove', follow: @follow %>
+    <% end %>
+  <% end %>
+</div>
+
 <p>
   <strong><%= User.human_attribute_name(:full_name) %>:</strong>
   <%= @user.full_name %>

@@ -1,0 +1,3 @@
+<%= form_with model: follow, url: user_follow_path(follow.following, follow), method: :delete do |f| %>
+  <%= f.submit t('view.user/follow.button.destroy'), style: 'margin-left: 10px; color: #ffffff; background-color: #ef3133; border-color: #EF4133; border-radius: 6px' %>
+<% end %>
