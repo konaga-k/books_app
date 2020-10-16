@@ -11,8 +11,8 @@ class User < ApplicationRecord
 
   def save
     ActiveRecord::Base.transaction do
-      avatar.purge if purge_avatar
       super
+      avatar.purge if purge_avatar
     end
   end
 
