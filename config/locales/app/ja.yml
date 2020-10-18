@@ -20,8 +20,11 @@ ja:
         password_confirmation: パスワード(確認)
         current_password: 現在のパスワード
     errors:
-      user_follow:
-        follower_is_equal_to_following: 自分をフォローすることはできません
+      models:
+        user_follow:
+          attributes:
+            base:
+              follower_is_equal_to_following: 自分をフォローすることはできません
   view:
     book:
       link:
