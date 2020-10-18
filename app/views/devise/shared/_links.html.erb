@@ -12,5 +12,6 @@
     <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
       <%= link_to t(".sign_up"), new_registration_path(resource_name) %><br />
     <% end %>
+    <%= link_to t(".sign_in_with_provider", provider: 'GitHub'), user_github_omniauth_authorize_path %>
   <% end %>
 </p>

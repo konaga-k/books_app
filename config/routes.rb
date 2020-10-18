@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     get "users/edit" => "users/registrations#edit", as: :edit_user_registration
     patch "users" => "users/registrations#update"
     put "users" => "users/registrations#update", as: :user_registration
+    match "users/auth/github" => "users/omniauth_authorizes#github", as: :user_github_omniauth_authorize, via: [:get, :post]
+    match "users/auth/github/callback" => "users/omniauth_callbacks#github", as: :user_github_omniauth_callback, via: [:get, :post]
   end
 
   resources :users, only: %i[index show] do

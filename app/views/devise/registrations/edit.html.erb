@@ -4,6 +4,17 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :avatar %><br />
+    <%= image_tag f.object.avatar.variant(resize: "100x100") if f.object.avatar.attached? %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :purge_avatar %>
+    <%= f.label :purge_avatar, style: 'display: inline' %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>

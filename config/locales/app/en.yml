@@ -7,6 +7,8 @@ en:
         author: author
         picture: picture
       user:
+        avatar: avatar
+        purge_avatar: purge avatar
         email: email
         last_name: last_name
         first_name: first_name
