@@ -24,7 +24,7 @@ ja:
         user_follow:
           attributes:
             base:
-              follower_is_equal_to_following: 自分をフォローすることはできません
+              follower_cannot_be_equal_to_following: 自分をフォローすることはできません
   view:
     book:
       link:

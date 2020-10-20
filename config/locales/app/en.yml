@@ -24,7 +24,7 @@ en:
         user_follow:
           attributes:
             base:
-              follower_is_equal_to_following: You can't follow yourself.
+              follower_cannot_be_equal_to_following: You can't follow yourself.
   view:
     book:
       link:
