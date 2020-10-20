@@ -8,6 +8,14 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  has_many :active_user_follows, class_name: "UserFollow", foreign_key: :follower_id, inverse_of: :follower
+  has_many :followings, through: :active_user_follows
+
+  has_many :book_comments, dependent: :destroy
+
+  has_many :reports, dependent: :destroy
+  has_many :report_comments, dependent: :destroy
+
   attribute :purge_avatar, :boolean, default: false
 
   class << self
@@ -28,11 +36,8 @@ class User < ApplicationRecord
     end
   end
 
-  has_many :active_user_follows, class_name: "UserFollow", foreign_key: :follower_id, inverse_of: :follower
-  has_many :followings, through: :active_user_follows
-
   # 余裕があればdecoratorにしたいが、速さ優先でmodelに実装
   def full_name
-    "#{last_name} #{first_name}"
+    "#{last_name} #{first_name}" if last_name.present? && first_name.present?
   end
 end

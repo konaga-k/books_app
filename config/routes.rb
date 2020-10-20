@@ -20,9 +20,16 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[index show] do
-    resources :follows, only: %i[create destroy], controller: 'users/follows'
-    resources :followings, only: %i[index], controller: 'users/followings'
+    resources :follows, only: %i[create destroy], controller: "users/follows"
+    resources :followings, only: %i[index], controller: "users/followings"
   end
-  resources :books
+
+  resources :books do
+    resources :comments, only: %i[edit create update destroy], controller: "books/comments"
+  end
+
+  resources :reports do
+    resources :comments, only: %i[edit create update destroy], controller: "reports/comments"
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,11 +1,6 @@
 en:
   activerecord:
     attributes:
-      book:
-        title: title
-        memo: memo
-        author: author
-        picture: picture
       user:
         avatar: avatar
         purge_avatar: purge avatar
@@ -19,30 +14,31 @@ en:
         password: password
         password_confirmation: password_confirmation
         current_password: current_password
+      book:
+        title: title
+        memo: memo
+        author: author
+        picture: picture
+      book_comment:
+        body: body
+      report:
+        title: title
+        description: description
+        reported_on: reported_on
+        user: user
+      report_comment:
+        body: body
     errors:
       models:
         user_follow:
           attributes:
             base:
               follower_cannot_be_equal_to_following: You can't follow yourself.
+        report:
+          attributes:
+            base:
+              more_than_one_report_cannot_be_submitted_on_the_same_day: You can't submit more than one report on the same day.
   view:
-    book:
-      link:
-        new: New Book
-        back: Back
-        show: Show
-        edit: Edit
-        destroy: Destroy
-      confirm:
-        destroy: Are you sure?
-      title:
-        index: Books
-        new: New Book
-        edit: Editing Book
-      notice:
-        create: Book was successfully created.
-        update: Book was successfully updated.
-        destroy: Book was successfully destroyed.
     user:
       link:
         back: Back
@@ -70,3 +66,73 @@ en:
         index: Followings
       message:
         none: This user is not following anyone.
+    book:
+      link:
+        new: New Book
+        back: Back
+        show: Show
+        show_detail:
+          show: Book Information
+          comments: Comments
+          comment_form: Comment Form
+        edit: Edit
+        destroy: Destroy
+      confirm:
+        destroy: Are you sure?
+      title:
+        index: Books
+        show: Book Detail
+        new: New Book
+        edit: Editing Book
+      notice:
+        create: Book was successfully created.
+        update: Book was successfully updated.
+        destroy: Book was successfully destroyed.
+    book/comment:
+      link:
+        edit: Edit
+        destroy: Destroy
+      confirm:
+        destroy: Are you sure?
+      title:
+        edit: Book Comment Edit
+      notice:
+        create: Book comment was successfully created.
+        update: Book comment was successfully updated.
+        destroy: Book comment was successfully destroyed.
+        no_comment: There is no book comment.
+    report:
+      link:
+        new: New Report
+        back: Back
+        show: Show
+        edit: Edit
+        destroy: Destroy
+      confirm:
+        destroy: Are you sure?
+      title:
+        index: Reports
+        show: Report Detail
+        show_detail:
+          show: Report Information
+          comments: Comments
+          comment_form: Comment Form
+        new: New Report
+        edit: Editing Report
+      notice:
+        create: Report was successfully created.
+        update: Report was successfully updated.
+        destroy: Report was successfully destroyed.
+    report/comment:
+      link:
+        edit: Edit
+        destroy: Destroy
+      confirm:
+        destroy: Are you sure?
+      title:
+        edit: Report Comment Edit
+      notice:
+        create: Report comment was successfully created.
+        update: Report comment was successfully updated.
+        destroy: Report comment was successfully destroyed.
+        no_comment: There is no report comment.

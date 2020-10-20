@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
-  <ul>
-    <li><%= link_to t('view.book.title.index'), books_path %></li>
+  <ul style="border-bottom: #666666 1px solid; padding-bottom: 8px">
     <li><%= link_to t('view.user.title.index'), users_path %></li>
+    <li><%= link_to t('view.book.title.index'), books_path %></li>
+    <li><%= link_to t('view.report.title.index'), reports_path %></li>
   </ul>
 <% end %>

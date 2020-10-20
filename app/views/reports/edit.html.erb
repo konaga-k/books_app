@@ -1,0 +1,6 @@
+<h1><%= t('view.report.title.edit') %></h1>
+
+<%= render 'form', report: @report %>
+
+<%= link_to t('view.report.link.show'), @report %> |
+<%= link_to t('view.report.link.back'), reports_path %>

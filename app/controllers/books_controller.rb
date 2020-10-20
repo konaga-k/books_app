@@ -10,6 +10,12 @@ class BooksController < ApplicationController
 
   # GET /books/1
   def show
+    @comments = @book.comments
+                     .includes(user: { avatar_attachment: :blob })
+                     .order(created_at: :asc)
+                     .page(params[:page])
+                     .per(10)
+    @comment = @book.comments.build
   end
 
   # GET /books/new

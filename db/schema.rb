@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_11_062302) do
-
+ActiveRecord::Schema.define(version: 2020_10_27_141332) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -33,6 +32,16 @@ ActiveRecord::Schema.define(version: 2020_10_11_062302) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "book_comments", force: :cascade do |t|
+    t.text "body", null: false
+    t.integer "user_id", null: false
+    t.integer "book_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_book_comments_on_book_id"
+    t.index ["user_id"], name: "index_book_comments_on_user_id"
+  end
+
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.text "memo"
@@ -40,6 +49,25 @@ ActiveRecord::Schema.define(version: 2020_10_11_062302) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "author"
     t.string "picture"
+  end
+
+  create_table "report_comments", force: :cascade do |t|
+    t.text "body", null: false
+    t.integer "user_id", null: false
+    t.integer "report_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["report_id"], name: "index_report_comments_on_report_id"
+    t.index ["user_id"], name: "index_report_comments_on_user_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "user_follows", force: :cascade do |t|
@@ -68,6 +96,11 @@ ActiveRecord::Schema.define(version: 2020_10_11_062302) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "book_comments", "books"
+  add_foreign_key "book_comments", "users"
+  add_foreign_key "report_comments", "reports"
+  add_foreign_key "report_comments", "users"
+  add_foreign_key "reports", "users"
   add_foreign_key "user_follows", "users", column: "follower_id"
   add_foreign_key "user_follows", "users", column: "following_id"
 end

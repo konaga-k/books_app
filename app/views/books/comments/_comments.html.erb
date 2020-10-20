@@ -1,0 +1,8 @@
+<% if comments.exists? %>
+  <% comments.each do |comment| %>
+    <%= render 'books/comments/comment', comment: comment %>
+  <% end %>
+  <%= paginate comments %>
+<% else %>
+  <%= t("view.book/comment.notice.no_comment") %>
+<% end %>

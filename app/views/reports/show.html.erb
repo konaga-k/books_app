@@ -1,0 +1,28 @@
+<h1><%= t('view.report.title.show') %></h1>
+
+<h2><%= t('view.report.title.show_detail.show') %></h2>
+<p>
+  <strong><%= Report.human_attribute_name(:reported_on) %>:</strong>
+  <%= l(@report.reported_on) %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:title) %>:</strong>
+  <%= @report.title %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:description) %>:</strong>
+  <%= @report.description %>
+</p>
+
+<% if @report.user == current_user %>
+  <%= link_to t('view.report.link.edit'), edit_report_path(@report) %> |
+<% end %>
+<%= link_to t('view.report.link.back'), reports_path %>
+
+<h2><%= t('view.report.title.show_detail.comments') %></h2>
+<%= render 'reports/comments/comments', comments: @comments %>
+
+<h2><%= t('view.report.title.show_detail.comment_form') %></h2>
+<%= render 'reports/comments/form', comment: @comment %>
