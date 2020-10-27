@@ -7,5 +7,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @follow = current_user.active_user_follows.find_or_initialize_by(following: @user)
   end
 end

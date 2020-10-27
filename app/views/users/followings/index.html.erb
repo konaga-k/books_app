@@ -1,0 +1,28 @@
+<h1><%= t('view.user/following.title.index') %></h1>
+
+<% if @followings.exists? %>
+  <table>
+    <thead>
+    <tr>
+      <th><%= User.human_attribute_name(:full_name) %></th>
+      <th colspan="1"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @followings.each do |user| %>
+      <tr>
+        <td>
+          <%= link_to user.full_name, user_path(user) %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p><%= I18n.t('view.user/following.message.none') %></p>
+<% end %>
+
+<%= paginate @followings %>
+
+<br>

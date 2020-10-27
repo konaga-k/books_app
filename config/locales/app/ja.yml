@@ -19,6 +19,12 @@ ja:
         password: パスワード
         password_confirmation: パスワード(確認)
         current_password: 現在のパスワード
+    errors:
+      models:
+        user_follow:
+          attributes:
+            base:
+              follower_cannot_be_equal_to_following: 自分をフォローすることはできません
   view:
     book:
       link:
@@ -44,6 +50,18 @@ ja:
       title:
         index: ユーザー 一覧
         show: ユーザー 詳細
+    user/follow:
+      button:
+        create: フォローする
+        destroy: フォロー解除する
+      notice:
+        create: ユーザーをフォローしました。
+        destroy: ユーザーをフォロー解除しました。
+    user/following:
+      title:
+        index: フォローユーザー 一覧
+      message:
+        none: このユーザーは誰もフォローしていません
     registration:
       link:
         edit: プロフィール 編集

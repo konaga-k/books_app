@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_10_124916) do
+ActiveRecord::Schema.define(version: 2020_10_11_062302) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2020_10_10_124916) do
     t.string "picture"
   end
 
+  create_table "user_follows", force: :cascade do |t|
+    t.integer "following_id"
+    t.integer "follower_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follower_id"], name: "index_user_follows_on_follower_id"
+    t.index ["following_id", "follower_id"], name: "index_user_follows_on_following_id_and_follower_id", unique: true
+    t.index ["following_id"], name: "index_user_follows_on_following_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -58,4 +68,6 @@ ActiveRecord::Schema.define(version: 2020_10_10_124916) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "user_follows", "users", column: "follower_id"
+  add_foreign_key "user_follows", "users", column: "following_id"
 end

@@ -19,7 +19,10 @@ Rails.application.routes.draw do
     match "users/auth/github/callback" => "users/omniauth_callbacks#github", as: :user_github_omniauth_callback, via: [:get, :post]
   end
 
-  resources :users, only: %i[index show]
+  resources :users, only: %i[index show] do
+    resources :follows, only: %i[create destroy], controller: 'users/follows'
+    resources :followings, only: %i[index], controller: 'users/followings'
+  end
   resources :books
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
