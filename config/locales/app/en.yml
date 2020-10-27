@@ -62,6 +62,9 @@ en:
       notice:
         create: Following the user was successfully completed.
         destroy: Removing the user was successfully completed.
+      alert:
+        create_failure: Following the user failed.
+        destroy_failure: Removing the user failed.
     user/following:
       title:
         index: Followings

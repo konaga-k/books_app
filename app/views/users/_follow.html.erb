@@ -1,3 +1,10 @@
 <%= form_with model: follow, url: user_follows_path(follow.following), method: :post do |f| %>
+  <% if follow.errors.any? %>
+    <ul>
+      <% follow.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <%= f.submit t('view.user/follow.button.create'), style: 'margin-left: 10px; color: #ffffff; background-color: #5cb85c; border-color: #5cc85c; border-radius: 6px' %>
 <% end %>

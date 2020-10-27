@@ -5,8 +5,7 @@ class Users::FollowsController < ApplicationController
     if @follow.save
       redirect_to @follow.following, notice: t("view.user/follow.notice.create")
     else
-      @user = @follow.following
-      render "users/show"
+      redirect_to @follow.following, alert: t("view.user/follow.alert.create_failure")
     end
   end
 
@@ -15,8 +14,7 @@ class Users::FollowsController < ApplicationController
     if @follow.destroy
       redirect_to @follow.following, notice: t("view.user/follow.notice.destroy")
     else
-      @user = @follow.following
-      render "users/show"
+      redirect_to @follow.following, notice: t("view.user/follow.alert.destroy_failure")
     end
   end
 end

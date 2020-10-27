@@ -57,6 +57,9 @@ ja:
       notice:
         create: ユーザーをフォローしました。
         destroy: ユーザーをフォロー解除しました。
+      alert:
+        create_failure: ユーザーのフォローに失敗しました
+        destroy_failure: ユーザーのフォロー解除に失敗しました
     user/following:
       title:
         index: フォローユーザー 一覧
