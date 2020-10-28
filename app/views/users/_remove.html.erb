@@ -1,3 +1,10 @@
 <%= form_with model: follow, url: user_follow_path(follow.following, follow), method: :delete do |f| %>
+  <% if follow.errors.any? %>
+    <ul>
+      <% follow.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <%= f.submit t('view.user/follow.button.destroy'), style: 'margin-left: 10px; color: #ffffff; background-color: #ef3133; border-color: #EF4133; border-radius: 6px' %>
 <% end %>
