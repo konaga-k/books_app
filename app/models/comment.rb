@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class ReportComment < ApplicationRecord
+class Comment < ApplicationRecord
   belongs_to :user
-  belongs_to :report, inverse_of: "comments"
+  belongs_to :commentable, polymorphic: true
 
   validates :body, presence: true
 end

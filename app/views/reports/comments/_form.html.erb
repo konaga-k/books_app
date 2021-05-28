@@ -1,4 +1,5 @@
-<% url = comment.new_record? ? report_comments_path(comment.report) : report_comment_path(comment.report, comment) %>
+<% report = comment.commentable %>
+<% url = comment.new_record? ? report_comments_path(report, comment) : report_comment_path(report, comment) %>
 <%= form_with(model: comment, url: url, local: true) do |form| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">

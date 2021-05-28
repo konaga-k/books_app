@@ -19,14 +19,12 @@ ja:
         memo: メモ
         author: 著者
         picture: 画像
-      book_comment:
-        body: 本文
       report:
         title: タイトル
         description: 内容
         reported_on: 投稿日
         user: ユーザー
-      report_comment:
+      comment:
         body: 本文
     errors:
       models:

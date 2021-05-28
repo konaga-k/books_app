@@ -7,8 +7,9 @@
     <%= link_to (comment.user.full_name || comment.user.email), comment.user %>
     <%= l(comment.created_at, format: :long) %>
     <% if comment.user == current_user %>
-      <%= link_to t('view.book/comment.link.edit'), edit_book_comment_path(comment.book, comment) %>
-      <%= link_to t('view.book/comment.link.destroy'), book_comment_path(comment.book, comment), method: :delete, data: { confirm: t('view.book/comment.confirm.destroy') } %>
+      <% book = comment.commentable %>
+      <%= link_to t('view.book/comment.link.edit'), edit_book_comment_path(book, comment) %>
+      <%= link_to t('view.book/comment.link.destroy'), book_comment_path(book, comment), method: :delete, data: { confirm: t('view.book/comment.confirm.destroy') } %>
     <% end %>
   </div>
 </div>

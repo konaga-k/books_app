@@ -19,14 +19,12 @@ en:
         memo: memo
         author: author
         picture: picture
-      book_comment:
-        body: body
       report:
         title: title
         description: description
         reported_on: reported_on
         user: user
-      report_comment:
+      comment:
         body: body
     errors:
       models:
