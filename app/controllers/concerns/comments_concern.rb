@@ -13,6 +13,7 @@ module CommentsConcern
 
     def set_comment
       @comment = @commentable.comments.find_by(id: params[:id], user: current_user)
+      redirect_back(fallback_location: root_path) if @comment.blank?
     end
 
     def comment_params
