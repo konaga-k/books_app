@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Books::CommentsController < ApplicationController
-  include CommentsConcern
-
   before_action :set_commentable
   before_action :set_new_comment, only: :create
   before_action :set_comment, only: [:edit, :update, :destroy]
@@ -37,5 +35,24 @@ class Books::CommentsController < ApplicationController
   def destroy
     @comment.destroy
     redirect_to @commentable, notice: t("view.book/comment.notice.destroy")
+  end
+
+  private
+  def set_commentable
+    resource, id = request.path.split("/")[1, 2]
+    @commentable = resource.singularize.classify.constantize.find(id)
+  end
+
+  def set_new_comment
+    @comment = @commentable.comments.build(comment_params)
+  end
+
+  def set_comment
+    @comment = @commentable.comments.find_by(id: params[:id], user: current_user)
+    redirect_back(fallback_location: root_path) if @comment.blank?
+  end
+
+  def comment_params
+    params.require(:comment).permit(:body)
   end
 end
