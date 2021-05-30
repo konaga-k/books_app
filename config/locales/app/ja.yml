@@ -1,11 +1,6 @@
 ja:
   activerecord:
     attributes:
-      book:
-        title: タイトル
-        memo: メモ
-        author: 著者
-        picture: 画像
       user:
         avatar: アバター
         purge_avatar: アバターを削除する
@@ -19,30 +14,29 @@ ja:
         password: パスワード
         password_confirmation: パスワード(確認)
         current_password: 現在のパスワード
+      book:
+        title: タイトル
+        memo: メモ
+        author: 著者
+        picture: 画像
+      report:
+        title: タイトル
+        description: 内容
+        reported_on: 投稿日
+        user: ユーザー
+      comment:
+        body: 本文
     errors:
       models:
         user_follow:
           attributes:
             base:
               follower_cannot_be_equal_to_following: 自分をフォローすることはできません
+        report:
+          attributes:
+            base:
+              more_than_one_report_cannot_be_submitted_on_the_same_day: 同日に複数の日報を投稿することはできません
   view:
-    book:
-      link:
-        new: 新規作成
-        back: 戻る
-        show: 詳細
-        edit: 編集
-        destroy: 削除
-      confirm:
-        destroy: 削除してもよろしいですか？
-      title:
-        index: 書籍 一覧
-        new: 書籍 新規作成
-        edit: 書籍 編集
-      notice:
-        create: 書籍が作成されました。
-        update: 書籍が更新されました。
-        destroy: 書籍が削除されました。
     user:
       link:
         back: 戻る
@@ -70,3 +64,73 @@ ja:
         edit: プロフィール 編集
       title:
         edit: プロフィール 編集
+    book:
+      link:
+        new: 新規作成
+        back: 戻る
+        show: 詳細
+        edit: 編集
+        destroy: 削除
+      confirm:
+        destroy: 削除してもよろしいですか？
+      title:
+        index: 書籍 一覧
+        show: 書籍 詳細
+        show_detail:
+          show: 書籍情報
+          comments: コメント一覧
+          comment_form: コメントフォーム
+        new: 書籍 新規作成
+        edit: 書籍 編集
+      notice:
+        create: 書籍が作成されました。
+        update: 書籍が更新されました。
+        destroy: 書籍が削除されました。
+    book/comment:
+      link:
+        edit: 編集
+        destroy: 削除
+      confirm:
+        destroy: 削除してもよろしいですか？
+      title:
+        edit: 書籍コメント 編集
+      notice:
+        create: 書籍コメントが作成されました。
+        update: 書籍コメントが更新されました。
+        destroy: 書籍コメントが削除されました。
+        no_comment: 書籍コメントは存在しません。
+    report:
+      link:
+        new: 新規作成
+        back: 戻る
+        show: 詳細
+        edit: 編集
+        destroy: 削除
+      confirm:
+        destroy: 削除してもよろしいですか？
+      title:
+        index: 日報 一覧
+        show: 日報 詳細
+        show_detail:
+          show: 日報情報
+          comments: コメント一覧
+          comment_form: コメントフォーム
+        new: 日報 新規作成
+        edit: 日報 編集
+      notice:
+        create: 日報が作成されました。
+        update: 日報が更新されました。
+        destroy: 日報が削除されました。
+    report/comment:
+      link:
+        edit: 編集
+        destroy: 削除
+      confirm:
+        destroy: 削除してもよろしいですか？
+      title:
+        edit: 日報コメント 編集
+      notice:
+        create: 日報コメントが作成されました。
+        update: 日報コメントが更新されました。
+        destroy: 日報コメントが削除されました。
+        no_comment: 日報コメントは存在しません。

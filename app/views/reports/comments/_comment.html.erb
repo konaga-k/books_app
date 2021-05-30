@@ -1,0 +1,15 @@
+<div style='margin-top: 10px; padding: 6px; border: solid #2E2F30 1px;'>
+  <div>
+    <%= simple_format(comment.body) %>
+  </div>
+  <div>
+    <%= image_tag user.avatar.variant(resize: "20x20") if comment.user.avatar.attached? %>
+    <%= link_to (comment.user.full_name || comment.user.email), comment.user %>
+    <%= l(comment.created_at, format: :long) %>
+    <% if comment.user == current_user %>
+      <% report = comment.commentable %>
+      <%= link_to t('view.report/comment.link.edit'), edit_report_comment_path(report, comment) %>
+      <%= link_to t('view.report/comment.link.destroy'), report_comment_path(report, comment), method: :delete, data: { confirm: t('view.report/comment.confirm.destroy') } %>
+    <% end %>
+  </div>
+</div>

@@ -1,3 +1,6 @@
+<h1><%= t('view.book.title.show') %></h1>
+
+<h2><%= t('view.book.title.show_detail.show') %></h2>
 <p>
   <strong><%= Book.human_attribute_name(:title) %>:</strong>
   <%= @book.title %>
@@ -20,3 +23,9 @@
 
 <%= link_to t('view.book.link.edit'), edit_book_path(@book) %> |
 <%= link_to t('view.book.link.back'), books_path %>
+
+<h2><%= t('view.book.title.show_detail.comments') %></h2>
+<%= render 'books/comments/comments', comments: @comments %>
+
+<h2><%= t('view.book.title.show_detail.comment_form') %></h2>
+<%= render 'books/comments/form', comment: @comment %>
